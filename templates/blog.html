@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+    <h1>Build A Blog</h1>
+    <form action="/blog" method="post">
+        
+        
+        <hr />
+
+        {% if blogs|length == 0 %}
+        <p>No Blogs posted</p>
+        {% else %}
+    
+            {% for blog in blogs %}
+                <h2><a href="{{ url_for('blog', blog_id=blog.id) }}">{{blog.title}}</a></h2> 
+                <p>{{blog.post}}</p>
+
+            {% endfor %}
+            
+        {% endif %}
+    </form>
+
+{% endblock %}
