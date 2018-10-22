@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+    <h1>Users Blogs</h1>
+    <form action="/user" method="post">
+        
+        
+        <hr />
+
+        {% for user in users %}
+            <h2><a href="{{ url_for ('user', user_id=user.id) }}">{{user.email}}</a></h2> 
+            
+
+        {% endfor %}
+
+    </form>
+
+{% endblock %}
