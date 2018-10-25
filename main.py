@@ -70,10 +70,10 @@ def main_blog():
 
     return render_template('blog.html', blogs=blogs, user=user)
 
-@app.route('/blog/<int:blog_id>')
+@app.route('/blog/<int:blog_id>/')
 def blog(blog_id):
-    blog = Blog.query.filter_by(id=blog_id).one()
-    user = User.query.filter_by(id=blog_id).one()
+    blog = Blog.query.filter_by(id=blog_id).first()
+    user = User.query.filter_by(id=blog.owner_id).first()
 
     return render_template('post.html', blog=blog, user=user)
 
@@ -131,7 +131,7 @@ def users():
 @app.route('/user/<int:user_id>', methods=['POST', 'GET'])
 def user(user_id):
 
-    user = User.query.filter_by(id=user_id).one()
+    user = User.query.filter_by(id=user_id).first()
     blogs = Blog.query.filter_by(owner=user).all()
    
 
