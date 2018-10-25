@@ -15,7 +15,11 @@
     
             {% for blog in blogs %}
                 <h2><a href="{{ url_for('blog', blog_id=blog.id) }}">{{blog.title}}</a></h2> 
+                
                 <p>{{blog.post}}</p>
+                
+                <h6>written by <a href="{{ url_for('user', user_id=user.id) }}">{{user.username}}</a></h6>
+                
 
             {% endfor %}
             

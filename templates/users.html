@@ -10,7 +10,7 @@
         <hr />
 
         {% for user in users %}
-            <h2><a href="{{ url_for ('user', user_id=user.id) }}">{{user.email}}</a></h2> 
+            <h2><a href="{{ url_for('user', user_id=user.id) }}">{{user.username}}</a></h2> 
             
 
         {% endfor %}
